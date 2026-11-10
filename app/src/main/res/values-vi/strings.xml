@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Đánh Giá Quán Ăn</string>
+
+    <!-- Navigation & Titles -->
+    <string name="tab_restaurants">Quán ăn</string>
+    <string name="tab_favourites">Yêu thích</string>
+    <string name="detail_title">Chi tiết quán ăn</string>
+
+    <!-- Labels & Formats -->
+    <string name="cuisine_district_format">%1$s · %2$s</string>
+    <string name="label_cuisine">Ẩm thực: %1$s</string>
+    <string name="label_district">Quận/Khu vực: %1$s</string>
+    <string name="label_address">Địa chỉ: %1$s</string>
+    <string name="label_phone">Điện thoại: %1$s</string>
+    <string name="label_rating">%1$.1f ★</string>
+
+    <!-- Actions -->
+    <string name="action_call">Gọi điện</string>
+    <string name="action_share">Chia sẻ</string>
+    <string name="action_favourite_add">Yêu thích</string>
+    <string name="action_favourite_remove">Bỏ thích</string>
+
+    <!-- Content descriptions for Accessibility (Slide 42) -->
+    <string name="cd_call">Gọi số điện thoại quán ăn</string>
+    <string name="cd_share">Chia sẻ thông tin quán ăn</string>
+    <string name="cd_favourite">Đánh dấu yêu thích</string>
+    <string name="cd_rating">Điểm đánh giá quán ăn</string>
+
+    <!-- Messages -->
+    <string name="no_dialler">Không tìm thấy ứng dụng gọi điện trên thiết bị này</string>
+    <string name="empty_favourites">Chưa có quán ăn yêu thích nào</string>
+    <string name="added_to_favourites">Đã thêm %1$s vào danh sách yêu thích</string>
+    <string name="removed_from_favourites">Đã xóa %1$s khỏi danh sách yêu thích</string>
+    <string name="share_restaurant_text">Hãy thử quán %1$s (%2$s) tại %3$s! Địa chỉ: %4$s, SĐT: %5$s</string>
+</resources>

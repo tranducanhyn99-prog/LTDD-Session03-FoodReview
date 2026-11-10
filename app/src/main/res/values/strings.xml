@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Food Review</string>
+    <string name="student_info" translatable="false">Trần Đức Anh - 24110155</string>
+
+    <!-- Navigation & Titles -->
+    <string name="tab_restaurants">Restaurants</string>
+    <string name="tab_favourites">Favourites</string>
+    <string name="detail_title">Restaurant Detail</string>
+
+    <!-- Labels & Formats -->
+    <string name="cuisine_district_format">%1$s · %2$s</string>
+    <string name="label_cuisine">Cuisine: %1$s</string>
+    <string name="label_district">District: %1$s</string>
+    <string name="label_address">Address: %1$s</string>
+    <string name="label_phone">Phone: %1$s</string>
+    <string name="label_rating">%1$.1f ★</string>
+
+    <!-- Actions -->
+    <string name="action_call">Call</string>
+    <string name="action_share">Share</string>
+    <string name="action_favourite_add">Favourite</string>
+    <string name="action_favourite_remove">Unfavourite</string>
+
+    <!-- Content descriptions for Accessibility (Slide 42) -->
+    <string name="cd_call">Call restaurant phone number</string>
+    <string name="cd_share">Share restaurant details</string>
+    <string name="cd_favourite">Toggle favourite status</string>
+    <string name="cd_rating">Restaurant rating</string>
+
+    <!-- Messages -->
+    <string name="no_dialler">No phone dialler app found on this device</string>
+    <string name="empty_favourites">No favourite restaurants yet</string>
+    <string name="added_to_favourites">Added %1$s to favourites</string>
+    <string name="removed_from_favourites">Removed %1$s from favourites</string>
+    <string name="share_restaurant_text">Check out %1$s (%2$s) in %3$s! Address: %4$s, Phone: %5$s</string>
+</resources>
