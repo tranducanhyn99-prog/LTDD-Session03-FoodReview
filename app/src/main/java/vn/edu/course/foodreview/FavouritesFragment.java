@@ -1,0 +1,74 @@
+package vn.edu.course.foodreview;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import java.util.ArrayList;
+import java.util.List;
+import vn.edu.course.foodreview.databinding.FragmentRestaurantListBinding;
+
+/**
+ * Stretch Task (Slide 41): Favourites tab displaying only restaurants marked as favourite
+ * in memory, surviving screen rotation via the shared RestaurantViewModel.
+ */
+public class FavouritesFragment extends Fragment {
+
+    @Nullable
+    private FragmentRestaurantListBinding binding;
+
+    @Nullable
+    @Override
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
+        binding = FragmentRestaurantListBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        FragmentRestaurantListBinding b = binding;
+        if (b == null) return;
+
+        int columns = getResources().getInteger(R.integer.restaurant_columns);
+        b.restaurantList.setLayoutManager(new GridLayoutManager(requireContext(), columns));
+
+        RestaurantAdapter adapter = new RestaurantAdapter(restaurant -> {
+            NavDirections action = FavouritesFragmentDirections
+                    .actionFavouritesToDetail(restaurant.getId());
+            NavHostFragment.findNavController(this).navigate(action);
+        });
+        b.restaurantList.setAdapter(adapter);
+
+        RestaurantViewModel viewModel = new ViewModelProvider(requireActivity())
+                .get(RestaurantViewModel.class);
+        viewModel.getRestaurants().observe(getViewLifecycleOwner(), restaurants -> {
+            List<Restaurant> favourites = new ArrayList<>();
+            if (restaurants != null) {
+                for (Restaurant r : restaurants) {
+                    if (r.isFavourite()) {
+                        favourites.add(r);
+                    }
+                }
+            }
+            adapter.submitList(favourites);
+            b.emptyText.setVisibility(favourites.isEmpty() ? View.VISIBLE : View.GONE);
+        });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+}
